@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.api", "notion.api\notion.api.csproj", "{FE6F877A-BE94-4CF5-8485-84C024C7B559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.migrations", "notion.migrations\notion.migrations.csproj", "{53A41160-9B98-4D4C-99D1-3961DCFB42E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.models", "notion.models\notion.models.csproj", "{A8E3EBB1-057A-4665-9E68-573F28AE091B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.dal", "notion.dal\notion.dal.csproj", "{D4EB1018-3124-48FB-BFFD-55F139A1D35E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.services", "notion.services\notion.services.csproj", "{891F276E-81F5-4834-9059-D937D43846F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E1E7BBC5-3C15-4DD0-94D0-E8AACF14F10C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.dal.tests", "tests\notion.dal.tests\notion.dal.tests.csproj", "{7EA04508-3840-4D8E-8D3A-BB68487DDE63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE6F877A-BE94-4CF5-8485-84C024C7B559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6F877A-BE94-4CF5-8485-84C024C7B559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6F877A-BE94-4CF5-8485-84C024C7B559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6F877A-BE94-4CF5-8485-84C024C7B559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A41160-9B98-4D4C-99D1-3961DCFB42E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A41160-9B98-4D4C-99D1-3961DCFB42E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A41160-9B98-4D4C-99D1-3961DCFB42E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A41160-9B98-4D4C-99D1-3961DCFB42E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8E3EBB1-057A-4665-9E68-573F28AE091B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E3EBB1-057A-4665-9E68-573F28AE091B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E3EBB1-057A-4665-9E68-573F28AE091B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E3EBB1-057A-4665-9E68-573F28AE091B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EB1018-3124-48FB-BFFD-55F139A1D35E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EB1018-3124-48FB-BFFD-55F139A1D35E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EB1018-3124-48FB-BFFD-55F139A1D35E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EB1018-3124-48FB-BFFD-55F139A1D35E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891F276E-81F5-4834-9059-D937D43846F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891F276E-81F5-4834-9059-D937D43846F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891F276E-81F5-4834-9059-D937D43846F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891F276E-81F5-4834-9059-D937D43846F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EA04508-3840-4D8E-8D3A-BB68487DDE63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EA04508-3840-4D8E-8D3A-BB68487DDE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EA04508-3840-4D8E-8D3A-BB68487DDE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EA04508-3840-4D8E-8D3A-BB68487DDE63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7EA04508-3840-4D8E-8D3A-BB68487DDE63} = {E1E7BBC5-3C15-4DD0-94D0-E8AACF14F10C}
+	EndGlobalSection
+EndGlobal
