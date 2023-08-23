@@ -1,4 +1,5 @@
 {
 	"dotnet.defaultSolution": "notion.sln",
-	"git.ignoreLimitWarning": true
+	"git.ignoreLimitWarning": true,
+	"editor.indentSize": 4
 }
