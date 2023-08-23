@@ -22,4 +22,14 @@ public class JustifiedValue<T>
   {
     return !value.isError;
   }
+
+  public static implicit operator JustifiedValue<T>(T? value)
+  {
+    return JustifiedValue<T>.FromValue(value);
+  }
+
+  public static implicit operator JustifiedValue<T>(Exception ex)
+  {
+    return JustifiedValue<T>.FromException(ex);
+  }
 }

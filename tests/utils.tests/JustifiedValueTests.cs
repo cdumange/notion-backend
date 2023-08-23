@@ -23,4 +23,18 @@ public class JustifiedValueTests
         Assert.Equal(expected, res.Exception);
         Assert.Null(res.Value);
     }
+
+    [Fact]
+    public void TestImplicitConversion()
+    {
+        JustifiedValue<string> value = "test";
+        Assert.True(value);
+        Assert.Equal("test", value.Value);
+        Assert.Null(value.Exception);
+
+        value = new Exception("test");
+        Assert.False(value);
+        Assert.NotNull(value.Exception);
+        Assert.Null(value.Value);
+    }
 }
