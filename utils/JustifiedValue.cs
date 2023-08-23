@@ -32,4 +32,9 @@ public class JustifiedValue<T>
   {
     return JustifiedValue<T>.FromException(ex);
   }
+
+  public static implicit operator T(JustifiedValue<T> value)
+  {
+    return value.Value;
+  }
 }

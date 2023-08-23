@@ -54,4 +54,30 @@ public class UserTests : IAsyncLifetime
         Assert.NotEqual(user.ID, Guid.Empty);
         Assert.NotEqual(user.creation_date, DateTime.MinValue);
     }
+
+    [Fact]
+    public async void TestGetUserByEmail()
+    {
+        // Given
+        string existingEmail = "existing@email.com",
+            absentEmail = "absent@gmail.com";
+        var s = new UsersDAL(this._connection);
+
+        // When
+
+        await s.CreateUser(new User { Email = existingEmail });
+
+        var existing = await s.GetUserByEmail(existingEmail);
+        var not = await s.GetUserByEmail(absentEmail);
+
+        // Then
+
+        Assert.True(existing);
+        Assert.NotNull(existing.Value);
+        Assert.Equal(existingEmail, existing.Value.Email);
+
+        Assert.False(not);
+        Assert.Null(not.Value);
+        Assert.Equal(UsersDAL.Exceptions.UserNotFound, not.Exception);
+    }
 }
