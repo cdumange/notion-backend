@@ -35,7 +35,6 @@ public class UserTests : IAsyncLifetime
         await _postgres.StopAsync();
     }
 
-    [Obsolete]
     public async Task InitializeAsync()
     {
         await _postgres.StartAsync();

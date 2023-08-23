@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.dal.tests", "tests\n
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.migrations", "notion.migrations\notion.migrations.csproj", "{D93A4FA8-8F9D-4D94-B95E-DF6A4A4ECE3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils", "utils\utils.csproj", "{2EACA77C-0132-4130-85F8-0936C540823C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils.tests", "tests\utils.tests\utils.tests.csproj", "{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,8 +54,17 @@ Global
 		{D93A4FA8-8F9D-4D94-B95E-DF6A4A4ECE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D93A4FA8-8F9D-4D94-B95E-DF6A4A4ECE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D93A4FA8-8F9D-4D94-B95E-DF6A4A4ECE3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EACA77C-0132-4130-85F8-0936C540823C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EACA77C-0132-4130-85F8-0936C540823C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EACA77C-0132-4130-85F8-0936C540823C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EACA77C-0132-4130-85F8-0936C540823C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7EA04508-3840-4D8E-8D3A-BB68487DDE63} = {E1E7BBC5-3C15-4DD0-94D0-E8AACF14F10C}
+		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B} = {E1E7BBC5-3C15-4DD0-94D0-E8AACF14F10C}
 	EndGlobalSection
 EndGlobal
