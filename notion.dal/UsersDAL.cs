@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Net.Http.Headers;
 using Dapper;
 using notion.models.dto;
 using notion.models.interfaces;
@@ -15,11 +16,24 @@ public class UsersDAL : IUserDAL
         this.db = db;
     }
 
-    public Task<User> CreateUser(User user)
+    public async Task<JustifiedValue<User>> CreateUser(User user)
     {
-        return this.db.QueryFirstOrDefaultAsync<User>(
+        try
+        {
+            User ret = await this.db.QueryFirstOrDefaultAsync<User>(
             @$"INSERT INTO {TableName} (Email) VALUES (@Email)
             RETURNING {userProjection}", user);
+            return ret;
+        }
+        catch (Exception e)
+        {
+            if (e.Message.Contains("unique constraint \"users_email_key\""))
+            {
+                return Exceptions.UserAlreadyExists;
+            }
+            return e;
+        }
+
     }
 
     public async Task<JustifiedValue<User>> GetUserByEmail(string email)
@@ -40,5 +54,6 @@ public class UsersDAL : IUserDAL
     public class Exceptions
     {
         public static Exception UserNotFound = new Exception("no user for this email");
+        public static Exception UserAlreadyExists = new Exception("a user with this email already exists");
     }
 }

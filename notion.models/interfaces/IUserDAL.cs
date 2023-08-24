@@ -9,7 +9,7 @@ namespace notion.models.interfaces
 {
     public interface IUserDAL
     {
-        Task<User> CreateUser(User user);
+        Task<JustifiedValue<User>> CreateUser(User user);
         Task<JustifiedValue<User>> GetUserByEmail(string email);
     }
 }

@@ -14,22 +14,41 @@ public class UserTests
         this.dbFixture = dbFixture;
     }
 
+    private void CleanTable()
+    {
+        var req = this.dbFixture.GetConnection().CreateCommand();
+        req.CommandText = "DELETE FROM " + UsersDAL.TableName;
+
+        req.ExecuteNonQuery();
+    }
 
     [Fact]
     public async Task TestCreateAsync()
     {
+        CleanTable();
         var u = new User { Email = "test@test.com" };
         var s = new UsersDAL(dbFixture.GetConnection());
-        var user = await s.CreateUser(u);
+        var ret = await s.CreateUser(u);
+
+        Assert.True(ret);
+        Assert.NotNull(ret.Value);
+
+        var user = ret.Value;
 
         Assert.Equal(u.Email, user.Email);
         Assert.NotEqual(user.ID, Guid.Empty);
         Assert.NotEqual(user.CreationDate, DateTime.MinValue);
+
+        // ensure unicity on email
+        ret = await s.CreateUser(u);
+        Assert.False(ret);
+        Assert.Equal(UsersDAL.Exceptions.UserAlreadyExists, ret.Exception);
     }
 
     [Fact]
     public async void TestGetUserByEmail()
     {
+        CleanTable();
         // Given
         string existingEmail = "existing@email.com",
             absentEmail = "absent@gmail.com";
