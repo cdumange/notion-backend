@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using notion.api.handlers;
@@ -30,6 +31,8 @@ public class UserHandlerTests
         var res = await UserHandlers.CreateUser(servicemok, user);
         Assert.IsType<Created<User>>(res);
         Assert.Equal(expectedUser, ((Created<User>)res).Value);
+
+        await servicemok.Received(1).CreateUser(user);
     }
 
     [Fact]
@@ -47,5 +50,21 @@ public class UserHandlerTests
         var res = await UserHandlers.CreateUser(servicemok, user);
         Assert.IsType<ProblemHttpResult>(res);
         Assert.Equal(User.Exceptions.UserAlreadyExists.Message, ((ProblemHttpResult)res).ProblemDetails.Detail);
+        await servicemok.Received(1).CreateUser(user);
+    }
+
+    [Fact]
+    public async Task TestCreateUser_BadRequestAsync()
+    {
+        var user = new User
+        {
+            Email = "anemail  gmail.com"
+        };
+
+
+        var servicemok = Substitute.For<IUserService>();
+
+        var res = await UserHandlers.CreateUser(servicemok, user);
+        Assert.IsType<BadRequest<List<ValidationResult>>>(res);
     }
 }
