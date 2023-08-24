@@ -3,7 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\notion.models\notion.models.csproj" />
   </ItemGroup>
-
+  
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

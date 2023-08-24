@@ -21,8 +21,3 @@ public class UserService : IUserService
   }
 }
 
-public interface IUserService
-{
-  Task<JustifiedValue<User>> CreateUser(User user);
-  Task<JustifiedValue<User>> GetUserByEmail(string email);
-}

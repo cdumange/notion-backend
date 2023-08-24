@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils", "utils\utils.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils.tests", "tests\utils.tests\utils.tests.csproj", "{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notion.api.tests", "tests\notion.api.tests\notion.api.tests.csproj", "{3F25777B-BE9E-4454-864A-AA704770A756}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,9 +64,14 @@ Global
 		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F25777B-BE9E-4454-864A-AA704770A756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F25777B-BE9E-4454-864A-AA704770A756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F25777B-BE9E-4454-864A-AA704770A756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F25777B-BE9E-4454-864A-AA704770A756}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7EA04508-3840-4D8E-8D3A-BB68487DDE63} = {E1E7BBC5-3C15-4DD0-94D0-E8AACF14F10C}
 		{B6CC5B5F-A861-4242-95B4-E9DDA6F58B4B} = {E1E7BBC5-3C15-4DD0-94D0-E8AACF14F10C}
+		{3F25777B-BE9E-4454-864A-AA704770A756} = {E1E7BBC5-3C15-4DD0-94D0-E8AACF14F10C}
 	EndGlobalSection
 EndGlobal
