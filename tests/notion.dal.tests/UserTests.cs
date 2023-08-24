@@ -42,7 +42,7 @@ public class UserTests
         // ensure unicity on email
         ret = await s.CreateUser(u);
         Assert.False(ret);
-        Assert.Equal(UsersDAL.Exceptions.UserAlreadyExists, ret.Exception);
+        Assert.Equal(User.Exceptions.UserAlreadyExists, ret.Exception);
     }
 
     [Fact]
@@ -69,6 +69,6 @@ public class UserTests
 
         Assert.False(not);
         Assert.Null(not.Value);
-        Assert.Equal(UsersDAL.Exceptions.UserNotFound, not.Exception);
+        Assert.Equal(User.Exceptions.UserNotFound, not.Exception);
     }
 }

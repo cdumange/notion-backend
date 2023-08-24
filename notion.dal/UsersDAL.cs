@@ -4,6 +4,7 @@ using Dapper;
 using notion.models.dto;
 using notion.models.interfaces;
 using utils;
+using static notion.models.dto.User;
 
 namespace notion.dal;
 public class UsersDAL : IUserDAL
@@ -31,7 +32,7 @@ public class UsersDAL : IUserDAL
             {
                 return Exceptions.UserAlreadyExists;
             }
-            return e;
+            throw;
         }
 
     }
@@ -48,12 +49,5 @@ public class UsersDAL : IUserDAL
         }
 
         return user;
-    }
-
-
-    public class Exceptions
-    {
-        public static Exception UserNotFound = new Exception("no user for this email");
-        public static Exception UserAlreadyExists = new Exception("a user with this email already exists");
     }
 }
