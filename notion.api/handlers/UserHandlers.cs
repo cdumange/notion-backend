@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.VisualBasic;
 using notion.models.dto;
 using notion.models.interfaces;
 
@@ -9,6 +10,7 @@ namespace notion.api.handlers
         public static void RegisterHandlers(WebApplication app)
         {
             app.MapPost("/api/v1/users", CreateUser);
+            app.MapGet("/api/v1/users/byemail", GetUserByEmail);
         }
 
         internal static async Task<IResult> CreateUser(IUserService s, User user)
@@ -23,6 +25,22 @@ namespace notion.api.handlers
             if (res)
             {
                 return Results.Created($"/users/{user.ID}", res.Value);
+            }
+
+            return Results.Problem(res.Exception.Message);
+        }
+
+        internal static async Task<IResult> GetUserByEmail(IUserService s, string email)
+        {
+            var res = await s.GetUserByEmail(email);
+            if (res)
+            {
+                return Results.Ok(res.Value);
+            }
+
+            if (res.Exception == User.Exceptions.UserNotFound)
+            {
+                return Results.NotFound();
             }
 
             return Results.Problem(res.Exception.Message);

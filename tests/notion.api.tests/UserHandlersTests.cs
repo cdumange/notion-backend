@@ -67,4 +67,59 @@ public class UserHandlerTests
         var res = await UserHandlers.CreateUser(servicemok, user);
         Assert.IsType<BadRequest<List<ValidationResult>>>(res);
     }
+
+    [Fact]
+    public async void TestGetUserByEmail_Ok()
+    {
+        // Given
+        var email = "anemail@gmail.com";
+        var expectedUser = new User { Email = email };
+
+        var servicemok = Substitute.For<IUserService>();
+        servicemok.GetUserByEmail(email).Returns(expectedUser);
+
+        // When
+
+        var res = await UserHandlers.GetUserByEmail(servicemok, email);
+
+        // Then
+        Assert.IsType<Ok<User>>(res);
+        Assert.Equal(expectedUser, ((Ok<User>)res).Value);
+    }
+
+    [Fact]
+    public async void TestGetUserByEmail_NotFound()
+    {
+        // Given
+        var email = "anemail@gmail.com";
+
+        var servicemok = Substitute.For<IUserService>();
+        servicemok.GetUserByEmail(email).Returns(User.Exceptions.UserNotFound);
+
+        // When
+
+        var res = await UserHandlers.GetUserByEmail(servicemok, email);
+
+        // Then
+        Assert.IsType<NotFound>(res);
+    }
+
+    [Fact]
+    public async void TestGetUserByEmail_Error()
+    {
+        // Given
+        var email = "anemail@gmail.com";
+        var expectedMessage = "an error message";
+
+        var servicemok = Substitute.For<IUserService>();
+        servicemok.GetUserByEmail(email).Returns(new Exception(expectedMessage));
+
+        // When
+
+        var res = await UserHandlers.GetUserByEmail(servicemok, email);
+
+        // Then
+        Assert.IsType<ProblemHttpResult>(res);
+        Assert.Equal(expectedMessage, ((ProblemHttpResult)res).ProblemDetails.Detail);
+    }
 }
